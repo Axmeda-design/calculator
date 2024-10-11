@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+</head>
+<body>
+    <h1>Mortgage Calculator</h1>
+
+    <form id="mortgageForm">
+        <label for="amount">Mortgage Amount ($):</label>
+        <input type="number" id="amount" required><br><br>
+
+        <label for="interestRate">Annual Interest Rate (%):</label>
+        <input type="number" id="interestRate" step="0.01" required><br><br>
+
+        <label for="years">Loan Term (Years):</label>
+        <input type="number" id="years" required><br><br>
+
+        <button type="button" onclick="calculateMortgage()">Calculate</button>
+    </form>
+
+    <h2>Mortgage Repayment Details</h2>
+    <p id="result"></p>
+
+    <script>
+        function calculateMortgage() {
+            // Get values from input fields
+            let amount = document.getElementById('amount').value;
+            let interestRate = document.getElementById('interestRate').value;
+            let years = document.getElementById('years').value;
+
+            // Convert interest rate to monthly and number of payments to months
+            let monthlyRate = (interestRate / 100) / 12;
+            let totalPayments = years * 12;
+
+            // Calculate monthly payment
+            let x = Math.pow(1 + monthlyRate, totalPayments);
+            let monthlyPayment = (amount * monthlyRate * x) / (x - 1);
+
+            // Display the result
+            if (isFinite(monthlyPayment)) {
+                document.getElementById('result').innerHTML = 
+                    `Your monthly payment is $${monthlyPayment.toFixed(2)} over ${years} years.`;
+            } else {
+                document.getElementById('result').innerHTML = 
+                    'Please enter valid values for all fields.';
+            }
+        }
+    </script>
+</body>
+</html>

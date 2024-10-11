@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage repayment calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            
+        }
+        
+        body{
+            background-color: #e3f4fc;
+
+        }
+        .calculator{
+            width: 1600px;
+            padding: 20px;
+            border-radius: 10px;
+           display: flex;
+         margin-top: 5%;
+        margin-left: 15%;
+
+         
+        }
+
+        .white{
+            background-color: white;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding: 10px;
+            width: 400px;
+        
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .white h4{
+            margin-bottom: 20px;
+            font-size: 23px;
+        }
+
+        .white input[type="text"]{
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        .flex{
+            display: flex;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+           
+        }
+        label{
+            font-size: 14px;
+            color: gray;
+        }
+        .white input[type="radio"]{
+            padding: 10px;
+            border: 2px solid black;
+            
+            margin-top: 10px;
+        }
+
+
+        .bt{
+            background-color: #dde36e;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 260px;
+            
+        
+        }
+        .bt{
+            display: flex;
+        }
+        .black{
+            background-color: #0e2434;
+            width: 370px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            
+        }
+
+        .black img{
+            margin-left: 30px;
+        }
+        .black h4{
+            margin-bottom: 20px;
+            margin-top: -30px;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .black p{
+            margin-bottom: 10px;
+            font-size: 15px;
+            text-align: center;
+            color: gray;
+        }
+      
+
+      @media (max-width: 768px) {
+        
+        .calculator{
+            flex-direction: column;
+            width: 100%;
+            
+        }
+        .white{
+            width: 110%;
+            margin-left: -23%;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0;
+            margin-right: -10%;
+        }
+
+        .black{
+            width: 110%;
+            margin-left: -23%;
+            margin-right: -10%;  
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 10px;
+        }
+        .i{
+            display: none;
+        }
+
+        #il{
+            display: none;
+        }
+        #i{
+            display: none;
+        }
+      }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="white">
+            <h4>Mortgage Calculator</h4>
+            <form action"">
+                <div class="fromcontrol">
+                <label for="loanAmount">Mortgage Amount:</label>
+                <input type="text" id="MortgageAmount" name="MortgageAmount" required>
+
+            </div>
+            <i class="fa-solid fa-dollar-sign" id="i" style="background: #e3f4fc;  position: absolute; left: 42.5%;padding-left: 25px; top: 30.5%; height: 37px; padding-top: 10px; width: 65px;"></i>
+            <div class="flex">
+            <div class="fromcontrol" >
+                <label for="loanAmount" style="margin-bottom: 10px;">Mortgage Term:</label>
+                <input type="text" id="MortgageTerm" name="MortgageTerm" required>
+
+            </div>
+
+            <p class="i" style="background: #e3f4fc;  position: absolute; left: 26.5%;padding-left: 10px; top: 44.5%; height: 36px; padding-top: 10px; width: 65px;">Years</p>
+            <div class="fromcontrol" style=" margin-left: 20px;">
+                <label for="loanAmount"> Interest Rate:</label>
+                <input type="text" id="Interest Rate" name="Interest Rate" required>
+
+            </div>
+            <i class="fa-light fa-percent " id="il" style="background: #e3f4fc;  position: absolute; left: 41.9%;padding-left: 30px; top: 44.5%; height: 36px; padding-top: 10px; width: 65px;"></i>
+
+        </div>
+
+        <div class="fromcontrol">
+            <label for="loanAmount" style="margin-top: 10px;">Mortgage Type</label><br>
+            <p style="border: 1px solid black; width: 100%; border-radius: 5px; padding: 10px; margin-top: 10px;"><input type="radio" id="Mortgage Type1" name="Mortgage Type" required > Repayment</p><br>
+            <p style="border: 1px solid black; width: 100%; border-radius: 5px; padding: 10px;"><input type="radio" id="Mortgage Type2" name="Mortgage Type" required > Interest Only</p>
+
+        </div>
+
+        <div class="bt" id="bt">
+            
+            
+            <i class="fa-duotone fa-solid fa-calculator fa-lg" style=" padding-top: 7px;"></i>
+           <p class="btn" style="padding-left: 15px;"> Calculate Repayments</p>
+        </div>
+            </form>
+
+        </div>
+<div class="black">
+    <img src="statistics-bar-with-invoice-document-dataphone.png" alt="" width="300px">
+    <h4>Result Shown Here</h4>
+    <p id="result">Complete The Form And Click Calculate Repayments To see What You Monthly Repayments Would be.</p>
+</div>
+
+    </div>
+
+ 
+
+
+    </div>
+
+    <script>
+       const MortgageAmount = document.getElementById("MortgageAmount");
+       const MortgageTerm = document.getElementById("MortgageTerm");
+
+       const InterestRate= document.getElementById("Interest Rate");
+
+       const MortgageType1 = document.getElementById("Mortgage Type1");
+       const MortgageType2 = document.getElementById("Mortgage Type2");
+
+       const bt = document.getElementById("bt");
+       const result = document.getElementById("result");
+
+        bt.addEventListener("click",(event) =>{
+            event.preventDefault();
+
+            if(MortgageType1.checked){
+                
+                result.textContent = "Monthly Repayment: $" + (MortgageAmount.value * (InterestRate.value / 100) * MortgageTerm.value / 12);
+            }
+
+            
+            if(MortgageType2.checked){
+                
+                result.textContent = "Interest Rate: $" + (MortgageAmount.value * (InterestRate.value / 100));
+            }
+            
+
+        })
+
+
+    </script>
+    
+</body>
+</html>
